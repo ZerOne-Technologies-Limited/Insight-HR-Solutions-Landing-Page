@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight, ArrowRight, Send, MapPin } from 'lucide-react';
 
 function App() {
@@ -94,30 +94,25 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        scrollPosition > 50 ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'
-      }`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrollPosition > 50 ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className={`text-2xl font-bold transition-colors duration-300 ${
-                scrollPosition > 50 ? 'text-blue-600' : 'text-white'
-              }`}>
+              <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
+                }`}>
                 Insight HR Solutions
               </span>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#services" className={`transition-colors duration-300 ${
-                scrollPosition > 50 ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
-              }`}>Services</a>
-              <a href="#about" className={`transition-colors duration-300 ${
-                scrollPosition > 50 ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
-              }`}>About</a>
-              <a href="#contact" className={`transition-colors duration-300 ${
-                scrollPosition > 50 ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
-              }`}>Contact</a>
+              <a href="#services" className={`transition-colors duration-300 ${scrollPosition > 50 ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
+                }`}>Services</a>
+              <a href="#about" className={`transition-colors duration-300 ${scrollPosition > 50 ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
+                }`}>About</a>
+              <a href="#contact" className={`transition-colors duration-300 ${scrollPosition > 50 ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
+                }`}>Contact</a>
               <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300">
                 Get Started
               </button>
@@ -127,9 +122,8 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`transition-colors duration-300 ${
-                  scrollPosition > 50 ? 'text-gray-700' : 'text-white'
-                }`}
+                className={`transition-colors duration-300 ${scrollPosition > 50 ? 'text-gray-700' : 'text-white'
+                  }`}
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -150,7 +144,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <div 
+      <div
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
@@ -160,7 +154,7 @@ function App() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40"></div>
         <div className="absolute inset-0 bg-blue-900/30"></div>
-        
+
         <div className="container relative mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="animate-fade-in-up">
@@ -169,7 +163,8 @@ function App() {
                 <span className="block text-blue-400">Through Innovation</span>
               </h1>
               <p className="text-xl text-gray-200 mb-12 leading-relaxed">
-                From HR management to construction, mining, and specialized services - 
+                Insight HR Solutions offers experienced and comprehensive HR Solutions for a wide range of
+                business needs. From HR management to construction, mining, and specialized services -
                 we deliver excellence across industries in Zambia and beyond.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -206,21 +201,18 @@ function App() {
                   <div
                     key={index}
                     data-index={index}
-                    className={`service-card p-6 cursor-pointer transition-all duration-500 border-l-4 transform hover:scale-102 ${
-                      visibleServices[index] ? 'visible' : ''
-                    } ${
-                      activeService === index 
-                        ? 'border-blue-600 bg-blue-50' 
+                    className={`service-card p-6 cursor-pointer transition-all duration-500 border-l-4 transform hover:scale-102 ${visibleServices[index] ? 'visible' : ''
+                      } ${activeService === index
+                        ? 'border-blue-600 bg-blue-50'
                         : 'border-transparent hover:border-blue-200'
-                    }`}
+                      }`}
                     onClick={() => setActiveService(index)}
                     style={{ transitionDelay: `${index * 100}ms` }}
                   >
                     <div className="flex items-center mb-3">
                       <div className="mr-4">{service.icon}</div>
-                      <h3 className={`text-xl font-semibold ${
-                        activeService === index ? 'text-blue-600' : 'text-gray-700'
-                      }`}>
+                      <h3 className={`text-xl font-semibold ${activeService === index ? 'text-blue-600' : 'text-gray-700'
+                        }`}>
                         {service.title}
                       </h3>
                     </div>
@@ -243,7 +235,7 @@ function App() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {services[activeService].details.map((detail, index) => (
-                    <div 
+                    <div
                       key={index}
                       className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
                     >
@@ -280,12 +272,12 @@ function App() {
                 About Insight HR Solutions
               </h2>
               <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                Based in Kalulushi, Zambia, we are a multifaceted company offering professional 
-                services across various industries. Our commitment to excellence and comprehensive 
+                Based in Kalulushi, Zambia, we are a multifaceted company offering professional
+                services across various industries. Our commitment to excellence and comprehensive
                 approach makes us the partner of choice for businesses seeking growth and efficiency.
               </p>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                From HR management to construction, mining, and specialized services, we bring 
+                From HR management to construction, mining, and specialized services, we bring
                 expertise and reliability to every project we undertake.
               </p>
               <button className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
@@ -306,7 +298,7 @@ function App() {
                 Ready to transform your business? Contact us today.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               {/* Contact Information */}
               <div className="md:col-span-1 space-y-6">
@@ -315,13 +307,13 @@ function App() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
                   <p className="text-gray-600">+260 973 011 428</p>
                 </div>
-                
+
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <Mail className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
                   <p className="text-gray-600">elazakcm@gmail.com</p>
                 </div>
-                
+
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
@@ -343,24 +335,24 @@ function App() {
                         <input type="email" id="email" placeholder="john@example.com" />
                       </div>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="subject">Subject</label>
                       <input type="text" id="subject" placeholder="How can we help you?" />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="message">Message</label>
-                      <textarea 
-                        id="message" 
-                        rows={6} 
+                      <textarea
+                        id="message"
+                        rows={6}
                         placeholder="Tell us more about your needs..."
                         className="resize-none"
                       ></textarea>
                     </div>
-                    
-                    <button 
-                      type="submit" 
+
+                    <button
+                      type="submit"
                       className="w-full bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transform hover:scale-102 transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       Send Message
