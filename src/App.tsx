@@ -168,12 +168,16 @@ function App() {
                 we deliver excellence across industries in Zambia and beyond.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
-                  Explore Our Services <ChevronRight className="ml-2" />
-                </button>
-                <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300">
-                  Contact Us
-                </button>
+                <a href="#services">
+                  <button className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
+                    Explore Our Services <ChevronRight className="ml-2" />
+                  </button>
+                </a>
+                <a href="#contact">
+                  <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300">
+                    Contact Us
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -317,7 +321,8 @@ function App() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
-                  <p className="text-gray-600">Kalulushi, Zambia</p>
+                  <p className="text-gray-600">Plot No. 205, kanyanyanta Avenue, Unit 1</p>
+                  <p className="text-gray-600">Kalulushi, Zambia.</p>
                 </div>
               </div>
 
