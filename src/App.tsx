@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight, ArrowRight, Send, MapPin } from 'lucide-react';
+import homebg from './assets/homebg.jpg'
+import company from './assets/company.jpg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -99,10 +101,13 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
-                }`}>
-                Insight HR Solutions
-              </span>
+              <a href="#home">
+                <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
+                  }`}>
+                  Insight HR Solutions
+                </span>
+              </a>
+
             </div>
 
             {/* Desktop Navigation */}
@@ -144,10 +149,11 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <div
+      <div  id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+          // backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+          backgroundImage: `url(${homebg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -261,7 +267,8 @@ function App() {
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                  // src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                  src={company}
                   alt="Office"
                   className="rounded-2xl shadow-2xl"
                 />
@@ -284,9 +291,12 @@ function App() {
                 From HR management to construction, mining, and specialized services, we bring
                 expertise and reliability to every project we undertake.
               </p>
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
-                Learn More About Us <ChevronRight className="ml-2" />
-              </button>
+              <a href="#contact">
+                <button className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
+                  Learn More About Us <ChevronRight className="ml-2" />
+                </button>
+              </a>
+
             </div>
           </div>
         </div>
