@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --repo https://github.com/ZerOne-Technologies-Limited/Insight-HR-Solutions-Landing-Page.git",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
