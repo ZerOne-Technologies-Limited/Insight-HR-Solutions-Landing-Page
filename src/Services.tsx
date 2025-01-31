@@ -10,6 +10,7 @@ import hr from './assets/Hr_Solutions.jpg';
 import electrical_sup from './assets/electrical_supply.jpg';
 import healthcare from './assets/healthcare.jpg';
 import minning from './assets/minning.jpg';
+import supply from './assets/supply.jpg'
 
 const services = [
   {
@@ -58,7 +59,7 @@ const services = [
   },
   {
     category: "Supplies",
-    image: "healthcare",
+    image: supply,
     details: "General Supply of good and services",
     text: [
       " Stationary office furniture (chairs, tables, drawers and shelves)", 
