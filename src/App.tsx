@@ -1,12 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight, ArrowRight, Send, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin } from 'lucide-react';
 import homebg from './assets/homebg.jpg'
 import company from './assets/company.jpg'
+import construction_image from './assets/construction_image.jpg'
+import hr_image from './assets/HR_image.jpg'
+import minning_image from './assets/minning_image.jpg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeService, setActiveService] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveService((prevService) => (prevService + 1) % services.length);
+    }, 3000); // Change service every 3 seconds
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount or when activeService changes
+  }, [activeService]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +64,8 @@ function App() {
         "Expatriate Services",
         "Recruitment/Head Hunting",
         "Training & Development"
-      ]
+      ],
+      image: hr_image
     },
     {
       icon: <HardHat className="w-16 h-16 text-blue-600" />,
@@ -65,7 +77,8 @@ function App() {
         "Metal Fabrication",
         "Electrical Installations",
         "Motor Vehicle Repairs"
-      ]
+      ],
+      image: construction_image
     },
     {
       icon: <Pickaxe className="w-16 h-16 text-blue-600" />,
@@ -77,7 +90,8 @@ function App() {
         "Vehicle Spares",
         "Industrial Materials",
         "Technical Support"
-      ]
+      ],
+      image: minning_image
     },
     {
       icon: <Sparkles className="w-16 h-16 text-blue-600" />,
@@ -89,7 +103,8 @@ function App() {
         "Entertainment Solutions",
         "Gardening Services",
         "Safety Compliance"
-      ]
+      ],
+      image: "/assets/web-development.png"
     },
   ];
 
@@ -193,72 +208,79 @@ function App() {
       </div>
 
       {/* Services Section */}
-      <section id="services" ref={servicesRef} className="py-32 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white/30 pointer-events-none"></div>
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-20 animate-slide-in">
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive solutions tailored to meet your business needs with expertise and precision
-            </p>
+  <section
+    id="services"
+    className="py-40 bg-white relative overflow-hidden"
+    style={{
+      backgroundImage: "url('/assets/background-pattern.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white/30 pointer-events-none"></div>
+    <div className="container mx-auto px-4 relative">
+      <div className="text-center mb-20 animate-slide-in">
+        <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Comprehensive solutions tailored to meet your business needs with expertise and precision.
+        </p>
+      </div>
+
+      {/* Service Navigation (Floating Buttons) */}
+      <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
+        {services.map((service, index) => (
+          <button
+          key={index}
+          className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
+            ${activeService === index ? "bg-blue-700 text-white scale-105 shadow-lg" : "bg-gray-200 text-gray-700 hover:bg-blue-200 hover:scale-105"}
+          `}
+          onClick={() => {
+            setActiveService(index);
+             // Stop the automatic switch when a service is clicked
+          }}
+          style={{ marginBottom: "-20px" }} // Slight overlap
+        >
+          <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
+            {service.icon}
+          </span>
+          <span className="hidden md:inline">{service.title}</span>
+        </button>
+        
+        ))}
+      </div>
+
+
+      {/* Service Details Card */}
+      <div className="relative bg-white rounded-2xl p-10 shadow-xl transition-all duration-500 flex flex-col md:flex-row items-center gap-8 transform hover:scale-105">
+        {/* <img
+          src= {services[activeService].image}
+          alt={services[activeService].title}
+          className="w-64 rounded-lg shadow-md"
+          style={{ filter: 'blur(0.5px)' }} // Adjust the blur value as needed
+        /> */}
+        <div className="flex-1">
+          <div className="flex items-center mb-8">
+            <div className="p-4 bg-blue-50 rounded-xl">{services[activeService].icon}</div>
+            <h3 className="text-3xl font-bold text-gray-900 ml-4">
+              {services[activeService].title}
+            </h3>
           </div>
-
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Service Navigation */}
-            <div className="lg:w-1/3">
-              <div className="sticky top-24">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    data-index={index}
-                    className={`service-card p-6 cursor-pointer transition-all duration-500 border-l-4 transform hover:scale-102 ${visibleServices[index] ? 'visible' : ''
-                      } ${activeService === index
-                        ? 'border-blue-600 bg-blue-50'
-                        : 'border-transparent hover:border-blue-200'
-                      }`}
-                    onClick={() => setActiveService(index)}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="mr-4">{service.icon}</div>
-                      <h3 className={`text-xl font-semibold ${activeService === index ? 'text-blue-600' : 'text-gray-700'
-                        }`}>
-                        {service.title}
-                      </h3>
-                    </div>
-                    <p className="text-gray-600">{service.description}</p>
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services[activeService].details.map((detail, index) => (
+              <div
+                key={index}
+                className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                <span className="text-gray-700">{detail}</span>
               </div>
-            </div>
-
-            {/* Service Details */}
-            <div className="lg:w-2/3">
-              <div className="bg-white rounded-2xl p-8 shadow-lg transform transition-all duration-500">
-                <div className="flex items-center mb-8">
-                  <div className="p-4 bg-blue-50 rounded-xl">
-                    {services[activeService].icon}
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900 ml-4">
-                    {services[activeService].title}
-                  </h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {services[activeService].details.map((detail, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
-                    >
-                      <ArrowRight className="w-5 h-5 text-blue-600 mr-3" />
-                      <span className="text-gray-700">{detail}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
+
 
       {/* About Section */}
       <section id="about" className="py-32 bg-gray-50">
@@ -319,7 +341,7 @@ function App() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <Phone className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-                  <p className="text-gray-600">+260 973 011 428</p>
+                  <p className="text-gray-600">+27 (77) 387-9866</p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
@@ -332,7 +354,7 @@ function App() {
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
                   <p className="text-gray-600">Plot No. 205, kanyanyanta Avenue, Unit 1</p>
-                  <p className="text-gray-600">Kalulushi, Zambia.</p>
+                  <p className="text-gray-600">Kitwe, Zambia.</p>
                 </div>
               </div>
 
@@ -390,7 +412,7 @@ function App() {
               Your Complete Business Solutions Partner in Zambia
             </p>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-            <p className="text-gray-500">© 2024 Insight HR Solutions. All rights reserved.</p>
+            <p className="text-gray-500">© {new Date().getFullYear()} Insight HR Solutions. All rights reserved.</p>
           </div>
         </div>
       </footer>
