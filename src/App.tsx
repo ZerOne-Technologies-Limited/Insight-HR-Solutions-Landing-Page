@@ -2,14 +2,15 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight, CheckCircle, Send, MapPin } from 'lucide-react';
 import homebg from './assets/homebg.jpg'
 import company from './assets/company.jpg'
-import construction_image from './assets/construction_image.jpg'
-import hr_image from './assets/HR_image.jpg'
-import minning_image from './assets/minning_image.jpg'
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeService, setActiveService] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -67,7 +68,7 @@ function App() {
         "Recruitment/Head Hunting",
         "Training & Development"
       ],
-      image: hr_image
+      
     },
     {
       icon: <HardHat className="w-16 h-16 text-blue-600" />,
@@ -80,7 +81,7 @@ function App() {
         "Electrical Installations",
         "Motor Vehicle Repairs"
       ],
-      image: construction_image
+      
     },
     {
       icon: <Pickaxe className="w-16 h-16 text-blue-600" />,
@@ -93,7 +94,7 @@ function App() {
         "Industrial Materials",
         "Technical Support"
       ],
-      image: minning_image
+      
     },
     {
       icon: <Sparkles className="w-16 h-16 text-blue-600" />,
@@ -267,28 +268,29 @@ function App() {
           className="w-64 rounded-lg shadow-md"
           style={{ filter: 'blur(0.5px)' }} // Adjust the blur value as needed
         /> */}
-            <div className="flex-1">
-              <div className="flex items-center mb-8">
-                <div className="p-4 bg-blue-50 rounded-xl">{services[activeService].icon}</div>
-                <h3 className="text-3xl font-bold text-gray-900 ml-4">
-                  {services[activeService].title}
-                </h3>
+        <div className="flex-1">
+          <div className="flex items-center mb-8">
+            <div className="p-4 bg-blue-50 rounded-xl">{services[activeService].icon}</div>
+            <h3 className="text-3xl font-bold text-gray-900 ml-4">
+              {services[activeService].title}
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services[activeService].details.map((detail, index) => (
+              <div
+                key={index}
+                onClick={() => navigate("/services")}
+                className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                <span  className="text-gray-700">{detail}</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {services[activeService].details.map((detail, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
-                  >
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">{detail}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
 
       {/* About Section */}
@@ -411,6 +413,7 @@ function App() {
           </div>
         </div>
       </section>
+      
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-20">
