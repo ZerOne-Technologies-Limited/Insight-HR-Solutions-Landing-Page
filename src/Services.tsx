@@ -52,7 +52,18 @@ const services = [
     text: [
       "Cleaning Services - Includes fumigation, disinfecting, and pest control for warehouses, hospitals, and homes.",
       "Special Intensive Care Unit Cleaning - Offering specialized cleaning for hospitals, mortuaries, and clinics.",
-      "Play Park Services - Installation and maintenance of playground equipment, entertainment, and gardening services."
+      "Play Park Services - Installation and maintenance of playground equipment, entertainment, and gardening services.",
+      "Disinfectant Chemicals - Supply of disinfectant chemicals against cholera, COVID-19, etc."
+    ],
+  },
+  {
+    category: "Supplies",
+    image: "healthcare",
+    details: "General Supply of good and services",
+    text: [
+      " Stationary office furniture (chairs, tables, drawers and shelves)", 
+      " ⁠motor vehicles ",
+      "⁠medical supplies and equipment",
     ],
   },
 ];
