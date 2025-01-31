@@ -105,7 +105,6 @@ function App() {
         "Gardening Services",
         "Safety Compliance",
         "Electrical supply and installatioin",
-        "office furniture supply"
       ],
       image: "/assets/web-development.png"
     },
@@ -114,11 +113,10 @@ function App() {
       title: "Supply",
       description: "Supply of office furniture ",
       details: [
-        "Earth moving equipment Motor vehicles",
-        "Motor vehicle spares",
+        "Stationary office furniture (chairs, tables, drawers and shelves)",
+        "motor vehicles",
         "Heavy-duty equipment spares Stationery",
-        "Office equipment Tyres",
-        "Motor Vehicle Engines Mining",
+        "medical supplies and equipment",
       ],
       image: "/assets/web-development.png"
     },
