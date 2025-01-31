@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin, Package } from 'lucide-react';
 import homebg from './assets/homebg.jpg'
 import company from './assets/company.jpg'
 import { Link } from "react-router-dom";
@@ -57,7 +57,7 @@ function App() {
   const services = [
     {
       icon: <Building2 className="w-16 h-16 text-blue-600" />,
-      title: "HR Solutions",
+      title: "HR & Professional Services",
       description: "Comprehensive HR services including payroll management, staff outsourcing, and recruitment.",
       details: [
         "Payroll Management",
@@ -106,6 +106,19 @@ function App() {
         "Safety Compliance",
         "Electrical supply and installatioin",
         "office furniture supply"
+      ],
+      image: "/assets/web-development.png"
+    },
+    {
+      icon: <Package className="w-16 h-16 text-blue-600" />,
+      title: "Supply",
+      description: "Supply of office furniture ",
+      details: [
+        "Earth moving equipment Motor vehicles",
+        "Motor vehicle spares",
+        "Heavy-duty equipment spares Stationery",
+        "Office equipment Tyres",
+        "Motor Vehicle Engines Mining",
       ],
       image: "/assets/web-development.png"
     },
