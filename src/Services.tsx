@@ -71,8 +71,9 @@ const ServicesPage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 py-12 bg-blue-50">
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white" : "bg-transparent"} py-3`}>
+
+    <div>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white" : "bg-transparent"} py-5`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <button
             onClick={() => navigate("/")}
@@ -83,6 +84,8 @@ const ServicesPage = () => {
           </button>
         </div>
       </nav>
+    <div id="top" className="container mx-auto px-4 sm:px-6 py-12 bg-blue-50 pt-16">
+
 
       <h1 className="text-4xl sm:text-6xl font-extrabold text-center mb-12 text-blue-800">Our Services</h1>
       <div className="space-y-10 sm:space-y-20">
@@ -125,6 +128,7 @@ const ServicesPage = () => {
           Back to Home
         </button>
       </div>
+    </div>
     </div>
   );
 };

@@ -272,7 +272,7 @@ function App() {
             {services[activeService].details.map((detail, index) => (
               <div
                 key={index}
-                onClick={() => navigate("/services")}
+                onClick={() => navigate("/services#top")}
                 className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
               >
                 <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
