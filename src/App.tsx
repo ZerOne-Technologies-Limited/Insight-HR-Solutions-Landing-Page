@@ -72,7 +72,7 @@ function App() {
     },
     {
       icon: <HardHat className="w-16 h-16 text-blue-600" />,
-      title: "Construction & Engineering",
+      title: "Civil Infrastructure",
       description: "Expert building construction and civil infrastructure projects.",
       details: [
         "Building Construction",
@@ -85,7 +85,7 @@ function App() {
     },
     {
       icon: <Pickaxe className="w-16 h-16 text-blue-600" />,
-      title: "Mining & Supplies",
+      title: "Engineering",
       description: "Supply and processing of minerals, equipment, and industrial materials.",
       details: [
         "Mineral Processing",
@@ -98,7 +98,7 @@ function App() {
     },
     {
       icon: <Sparkles className="w-16 h-16 text-blue-600" />,
-      title: "Special Services",
+      title: "Health Care & Special Services",
       description: "Cleaning, hygiene, play park services, and entertainment solutions.",
       details: [
         "Cleaning & Hygiene",

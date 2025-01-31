@@ -1,5 +1,7 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { Menu , ChevronLeft, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin } from 'lucide-react';
+
 import construction from './assets/Construction.jpg'
 import special_services from './assets/Special_Services.jpg'
 import civil_eng from './assets/Civil-Engineering.jpg'
@@ -105,10 +107,44 @@ const services = [
 ];
 
 const ServicesPage = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   return (
     <div className="container mx-auto px-4 sm:px-6 py-12">
+            {/* Navigation */}
+        {/* Navigation */}
+      {/* Navigation */}
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        } py-3`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          {/* Back Button */}
+          <button
+            onClick={() => navigate("/")}
+            className={`flex items-center space-x-2 text-lg font-semibold transition-colors duration-300 ${
+              isScrolled ? "text-gray-900" : "text-black"
+            }`}
+          >
+            <ChevronLeft className="h-6 w-6" />
+            <span>Back to Home</span>
+          </button>
+        </div>
+      </nav>
+
       <h1 className="text-4xl sm:text-6xl font-extrabold text-center mb-12 text-primary">Our Services</h1>
       <div className="space-y-10 sm:space-y-20">
         {services.map((service, index) => (
