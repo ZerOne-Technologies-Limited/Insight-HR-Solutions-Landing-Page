@@ -105,7 +105,9 @@ function App() {
         "Play Park Services",
         "Entertainment Solutions",
         "Gardening Services",
-        "Safety Compliance"
+        "Safety Compliance",
+        "Electrical supply and installatioin",
+        "office furniture supply"
       ],
       image: "/assets/web-development.png"
     },
@@ -288,7 +290,13 @@ function App() {
             ))}
           </div>
         </div>
+
+        <button onClick={() => navigate("/services")} className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
+        View All Services <ChevronRight className="ml-2" />
+      </button>
       </div>
+
+
     </div>
   </section>
 
@@ -316,7 +324,7 @@ function App() {
                 About Insight HR Solutions
               </h2>
               <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                Based in Kalulushi, Zambia, we are a multifaceted company offering professional
+                Based in Kitwe, Zambia, we are a multifaceted company offering professional
                 services across various industries. Our commitment to excellence and comprehensive
                 approach makes us the partner of choice for businesses seeking growth and efficiency.
               </p>
@@ -364,7 +372,7 @@ function App() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
-                  <p className="text-gray-600">Plot No. 205, kanyanyanta Avenue, Unit 1</p>
+                  <p className="text-gray-600">Plot No. 205, Kanyanta Avenue, Unit 1</p>
                   <p className="text-gray-600">Kitwe, Zambia.</p>
                 </div>
               </div>

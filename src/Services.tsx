@@ -137,9 +137,10 @@ const ServicesPage = () => {
       </div>
       <div className="mt-10 sm:mt-16 text-center bg-primary-light p-6 sm:p-10 rounded-lg shadow-lg text-black">
         <h2 className="text-2xl sm:text-4xl font-semibold mb-2 sm:mb-4">Contact Us</h2>
-        <p className="text-base sm:text-lg">Plot No. 205, Kanyanyanta Avenue, Unit 1, SOHO Park, SOHO.</p>
-        <p className="text-base sm:text-lg">P.O. Box 260027, Kalulushi - Zambia</p>
+        <p className="text-base sm:text-lg">Plot No. 205, Kanyanta Avenue, Unit 1, SOHO Park, SOHO.</p>
+        <p className="text-base sm:text-lg">P.O. Box 260027, Kitwe - Zambia</p>
         <p className="text-base sm:text-lg">Cell: +260 973 011 428</p>
+        <p className="text-base sm:text-lg">WhatsApp: +27 (77) 387-9866</p>
         <p className="text-base sm:text-lg">Email: elazakcm@gmail.com</p>
       </div>
       <div className="mt-6 text-center">
