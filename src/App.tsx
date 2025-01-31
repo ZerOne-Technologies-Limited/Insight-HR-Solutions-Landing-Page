@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight, CheckCircle, Send, MapPin } from 'lucide-react';
 import homebg from './assets/homebg.jpg'
 import company from './assets/company.jpg'
 import construction_image from './assets/construction_image.jpg'
@@ -119,8 +119,11 @@ function App() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <a href="#home">
-                <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
+                {/* <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
                   }`}>
+                  Insight HR Solutions
+                </span> */}
+                <span className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'}`}>
                   Insight HR Solutions
                 </span>
               </a>
@@ -166,7 +169,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <div  id="home"
+      <div id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
           // backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
@@ -181,7 +184,11 @@ function App() {
         <div className="container relative mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="animate-fade-in-up">
-              <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
+              {/* <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
+                Transforming Business
+                <span className="block text-blue-400">Through Innovation</span>
+              </h1> */}
+              <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
                 Transforming Business
                 <span className="block text-blue-400">Through Innovation</span>
               </h1>
@@ -210,78 +217,78 @@ function App() {
       </div>
 
       {/* Services Section */}
-  <section
-    id="services"
-    className="py-40 bg-white relative overflow-hidden"
-    style={{
-      backgroundImage: "url('/assets/background-pattern.png')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  >
-    <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white/30 pointer-events-none"></div>
-    <div className="container mx-auto px-4 relative">
-      <div className="text-center mb-20 animate-slide-in">
-        <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Comprehensive solutions tailored to meet your business needs with expertise and precision.
-        </p>
-      </div>
+      <section
+        id="services"
+        className="py-40 bg-white relative overflow-hidden"
+        style={{
+          backgroundImage: "url('/assets/background-pattern.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white/30 pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center mb-20 animate-slide-in">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Comprehensive solutions tailored to meet your business needs with expertise and precision.
+            </p>
+          </div>
 
-      {/* Service Navigation (Floating Buttons) */}
-      <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
-        {services.map((service, index) => (
-          <button
-          key={index}
-          className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
+          {/* Service Navigation (Floating Buttons) */}
+          <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
+            {services.map((service, index) => (
+              <button
+                key={index}
+                className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
             ${activeService === index ? "bg-blue-700 text-white scale-105 shadow-lg" : "bg-gray-200 text-gray-700 hover:bg-blue-200 hover:scale-105"}
           `}
-          onClick={() => {
-            setActiveService(index);
-             // Stop the automatic switch when a service is clicked
-          }}
-          style={{ marginBottom: "-20px" }} // Slight overlap
-        >
-          <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
-            {service.icon}
-          </span>
-          <span className="hidden md:inline">{service.title}</span>
-        </button>
-        
-        ))}
-      </div>
+                onClick={() => {
+                  setActiveService(index);
+                  // Stop the automatic switch when a service is clicked
+                }}
+                style={{ marginBottom: "-20px" }} // Slight overlap
+              >
+                <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
+                  {service.icon}
+                </span>
+                <span className="hidden md:inline">{service.title}</span>
+              </button>
+
+            ))}
+          </div>
 
 
-      {/* Service Details Card */}
-      <div className="relative bg-white rounded-2xl p-10 shadow-xl transition-all duration-500 flex flex-col md:flex-row items-center gap-8 transform hover:scale-105">
-        {/* <img
+          {/* Service Details Card */}
+          <div className="relative bg-white rounded-2xl p-10 shadow-xl transition-all duration-500 flex flex-col md:flex-row items-center gap-8 transform hover:scale-105">
+            {/* <img
           src= {services[activeService].image}
           alt={services[activeService].title}
           className="w-64 rounded-lg shadow-md"
           style={{ filter: 'blur(0.5px)' }} // Adjust the blur value as needed
         /> */}
-        <div className="flex-1">
-          <div className="flex items-center mb-8">
-            <div className="p-4 bg-blue-50 rounded-xl">{services[activeService].icon}</div>
-            <h3 className="text-3xl font-bold text-gray-900 ml-4">
-              {services[activeService].title}
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services[activeService].details.map((detail, index) => (
-              <div
-                key={index}
-                className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                <span className="text-gray-700">{detail}</span>
+            <div className="flex-1">
+              <div className="flex items-center mb-8">
+                <div className="p-4 bg-blue-50 rounded-xl">{services[activeService].icon}</div>
+                <h3 className="text-3xl font-bold text-gray-900 ml-4">
+                  {services[activeService].title}
+                </h3>
               </div>
-            ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {services[activeService].details.map((detail, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <span className="text-gray-700">{detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
 
       {/* About Section */}
