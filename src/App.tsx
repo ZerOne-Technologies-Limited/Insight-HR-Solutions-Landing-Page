@@ -359,8 +359,8 @@ function App() {
               <div className="md:col-span-1 space-y-6">
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <Phone className="w-12 h-12 text-blue-600 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-                  <p className="text-gray-600">+260 973 011 428</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">WhatsApp</h3>
+                  <p className="text-gray-600">+27 (77) 387-9866</p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
