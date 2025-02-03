@@ -128,7 +128,7 @@ const ServicesPage = () => {
         <p className="text-base sm:text-lg">Plot. 205 Kanyanta Avenue, Unit 1 Soho park - Kitwe</p>
         <p className="text-base sm:text-lg">P.O. Box 260027, Kitwe - Zambia</p>
         <p className="text-base sm:text-lg">Cell: +260 973 011 428</p>
-        <p className="text-base sm:text-lg">WhatsApp: +27 (77) 387-9866</p>
+        <p className="text-base sm:text-lg">WhatsApp: +27 77 387-9866</p>
         <p className="text-base sm:text-lg">Email: elazakcm@gmail.com</p>
       </div>
       <div className="mt-6  text-center">
