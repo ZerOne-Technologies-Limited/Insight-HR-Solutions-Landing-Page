@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin, Package } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin, Package } from 'lucide-react';
 import homebg from './assets/homebg.jpg'
 import company from './assets/company.jpg'
 import { Link } from "react-router-dom";
@@ -9,16 +9,19 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeService, setActiveService] = useState(0);
+  const [isAutoChanging, setIsAutoChanging] = useState(true);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!isAutoChanging) return; // Stop the interval if auto-changing is disabled
+  
     const intervalId = setInterval(() => {
       setActiveService((prevService) => (prevService + 1) % services.length);
-    }, 3000); // Change service every 3 seconds
-
-    return () => clearInterval(intervalId); // Cleanup interval on unmount or when activeService changes
-  }, [activeService]);
+    }, 3000); 
+  
+    return () => clearInterval(intervalId);
+  }, [activeService, isAutoChanging]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,10 +138,7 @@ function App() {
               <a href="#home">
                 {/* <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
                   }`}>
-                  Insight HR Solutions
-                </span> */}
-                <span className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'}`}>
-                  Insight HR Solutions
+                  Insight Human Resource Investment Limited
                 </span>
               </a>
 
@@ -249,28 +249,27 @@ function App() {
             </p>
           </div>
 
-          {/* Service Navigation (Floating Buttons) */}
-          <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
-            {services.map((service, index) => (
-              <button
-                key={index}
-                className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
-            ${activeService === index ? "bg-blue-700 text-white scale-105 shadow-lg" : "bg-gray-200 text-gray-700 hover:bg-blue-200 hover:scale-105"}
-          `}
-                onClick={() => {
-                  setActiveService(index);
-                  // Stop the automatic switch when a service is clicked
-                }}
-                style={{ marginBottom: "-20px" }} // Slight overlap
-              >
-                <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
-                  {service.icon}
-                </span>
-                <span className="hidden md:inline">{service.title}</span>
-              </button>
-
-            ))}
-          </div>
+      {/* Service Navigation (Floating Buttons) */}
+      <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
+        {services.map((service, index) => (
+          <button
+            key={index}
+            className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
+              ${activeService === index ? "bg-blue-700 text-white scale-105 shadow-lg" : "bg-gray-200 text-gray-700 hover:bg-blue-200 hover:scale-105"}`}
+            onClick={() => {
+              setActiveService(index);
+              setIsAutoChanging(false); // Stop auto change when a user clicks
+            }}
+            style={{ marginBottom: "-20px" }}
+          >
+            <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
+              {service.icon}
+            </span>
+            <span className="hidden md:inline">{service.title}</span>
+          </button>
+        
+        ))}
+      </div>
 
 
           {/* Service Details Card */}
@@ -365,13 +364,19 @@ function App() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 items-center">
               {/* Contact Information */}
               <div className="md:col-span-1 space-y-6">
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <Phone className="w-12 h-12 text-blue-600 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
+                  <p className="text-gray-600">+27 77 387-9866</p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                  <MessageCircle className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">WhatsApp</h3>
-                  <p className="text-gray-600">+27 (77) 387-9866</p>
+                  <p className="text-gray-600">+260 97 3011428 </p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
@@ -383,7 +388,7 @@ function App() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
-                  <p className="text-gray-600">Plot No. 205, Kanyanta Avenue, Unit 1</p>
+                  <p className="text-gray-600">Plot No. 205 Kanyanta Avenue, Soho park - Parklands</p>
                   <p className="text-gray-600">Kitwe, Zambia.</p>
                 </div>
               </div>

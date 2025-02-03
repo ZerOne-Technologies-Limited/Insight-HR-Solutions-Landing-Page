@@ -14,7 +14,7 @@ import supply from './assets/supply.jpg'
 
 const services = [
   {
-    category: "HR Services",
+    category: "HR and professional services",
     image: hr,
     details: "Payroll Management, Staff Outsourcing, Expatriate Services, Recruitment/Head hunting, and Training and Development.",
     text: [
@@ -33,7 +33,7 @@ const services = [
       "Building Construction - Includes foundation works, bricklaying, electrical installations, plumbing, and landscaping.",
       "Civil Infrastructure - Drainage, water supply, stormwater management, and electrical ducts.",
       "Contractual Works - Labor Hire, Installation & Repair of Electrical Accessories, and Skilled & Unskilled Workers.",
-      "Supplies - Earth moving equipment, motor vehicles, office supplies, and equipment."
+      "Supplies - Earth moving equipment."
     ],
   },
   {
@@ -125,9 +125,10 @@ const ServicesPage = () => {
 
       <div className="mt-10 sm:mt-16 text-center bg-blue-100 p-6 sm:p-10 rounded-lg shadow-lg text-blue-900">
         <h2 className="text-2xl sm:text-4xl font-semibold mb-2 sm:mb-4">Contact Us</h2>
-        <p className="text-base sm:text-lg">Plot No. 205, Kanyanta Avenue, Unit 1, SOHO Park, SOHO.</p>
+        <p className="text-base sm:text-lg">Plot. 205 Kanyanta Avenue, Unit 1 Soho park - Kitwe</p>
         <p className="text-base sm:text-lg">P.O. Box 260027, Kitwe - Zambia</p>
-        <p className="text-base sm:text-lg">WhatsApp: +27 (77) 387-9866</p>
+        <p className="text-base sm:text-lg">Cell: +260 973 011 428</p>
+        <p className="text-base sm:text-lg">WhatsApp: +27 77 387-9866</p>
         <p className="text-base sm:text-lg">Email: elazakcm@gmail.com</p>
       </div>
       <div className="mt-6  text-center">
