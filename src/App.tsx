@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, MessageCircle, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin, Package } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight, CheckCircle, Send, MapPin, Package } from 'lucide-react';
 import homebg from './assets/homebg.jpg'
 import company from './assets/company.jpg'
 import { Link } from "react-router-dom";
@@ -15,11 +15,11 @@ function App() {
 
   useEffect(() => {
     if (!isAutoChanging) return; // Stop the interval if auto-changing is disabled
-  
+
     const intervalId = setInterval(() => {
       setActiveService((prevService) => (prevService + 1) % services.length);
-    }, 3000); 
-  
+    }, 3000);
+
     return () => clearInterval(intervalId);
   }, [activeService, isAutoChanging]);
 
@@ -71,7 +71,7 @@ function App() {
         "Recruitment/Head Hunting",
         "Training & Development"
       ],
-      
+
     },
     {
       icon: <HardHat className="w-16 h-16 text-blue-600" />,
@@ -84,7 +84,7 @@ function App() {
         "Electrical Installations",
         "Motor Vehicle Repairs"
       ],
-      
+
     },
     {
       icon: <Pickaxe className="w-16 h-16 text-blue-600" />,
@@ -97,7 +97,7 @@ function App() {
         "Industrial Materials",
         "Technical Support"
       ],
-      
+
     },
     {
       icon: <Sparkles className="w-16 h-16 text-blue-600" />,
@@ -136,9 +136,9 @@ function App() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <a href="#home">
-                {/* <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
+                <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
                   }`}>
-                  Insight Human Resource Investment Limited
+                  Insight Human Resource Investment Limited
                 </span>
               </a>
 
@@ -249,27 +249,27 @@ function App() {
             </p>
           </div>
 
-      {/* Service Navigation (Floating Buttons) */}
-      <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
-        {services.map((service, index) => (
-          <button
-            key={index}
-            className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
+          {/* Service Navigation (Floating Buttons) */}
+          <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
+            {services.map((service, index) => (
+              <button
+                key={index}
+                className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
               ${activeService === index ? "bg-blue-700 text-white scale-105 shadow-lg" : "bg-gray-200 text-gray-700 hover:bg-blue-200 hover:scale-105"}`}
-            onClick={() => {
-              setActiveService(index);
-              setIsAutoChanging(false); // Stop auto change when a user clicks
-            }}
-            style={{ marginBottom: "-20px" }}
-          >
-            <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
-              {service.icon}
-            </span>
-            <span className="hidden md:inline">{service.title}</span>
-          </button>
-        
-        ))}
-      </div>
+                onClick={() => {
+                  setActiveService(index);
+                  setIsAutoChanging(false); // Stop auto change when a user clicks
+                }}
+                style={{ marginBottom: "-20px" }}
+              >
+                <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
+                  {service.icon}
+                </span>
+                <span className="hidden md:inline">{service.title}</span>
+              </button>
+
+            ))}
+          </div>
 
 
           {/* Service Details Card */}
@@ -280,35 +280,35 @@ function App() {
           className="w-64 rounded-lg shadow-md"
           style={{ filter: 'blur(0.5px)' }} // Adjust the blur value as needed
         /> */}
-        <div className="flex-1">
-          <div className="flex items-center mb-8">
-            <div className="p-4 bg-blue-50 rounded-xl">{services[activeService].icon}</div>
-            <h3 className="text-3xl font-bold text-gray-900 ml-4">
-              {services[activeService].title}
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services[activeService].details.map((detail, index) => (
-              <div
-                key={index}
-                onClick={() => navigate("/services#top")}
-                className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                <span  className="text-gray-700">{detail}</span>
+            <div className="flex-1">
+              <div className="flex items-center mb-8">
+                <div className="p-4 bg-blue-50 rounded-xl">{services[activeService].icon}</div>
+                <h3 className="text-3xl font-bold text-gray-900 ml-4">
+                  {services[activeService].title}
+                </h3>
               </div>
-            ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {services[activeService].details.map((detail, index) => (
+                  <div
+                    key={index}
+                    onClick={() => navigate("/services#top")}
+                    className="flex items-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <span className="text-gray-700">{detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button onClick={() => navigate("/services")} className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
+              View All Services <ChevronRight className="ml-2" />
+            </button>
           </div>
+
+
         </div>
-
-        <button onClick={() => navigate("/services")} className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center">
-        View All Services <ChevronRight className="ml-2" />
-      </button>
-      </div>
-
-
-    </div>
-  </section>
+      </section>
 
 
       {/* About Section */}
@@ -388,7 +388,7 @@ function App() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
-                  <p className="text-gray-600">Plot No. 205 Kanyanta Avenue, Soho park - Parklands</p>
+                  <p className="text-gray-600">Plot No. 205 Kanyanta Avenue, Unit 1 Soho Park,</p>
                   <p className="text-gray-600">Kitwe, Zambia.</p>
                 </div>
               </div>
@@ -437,7 +437,7 @@ function App() {
           </div>
         </div>
       </section>
-      
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-20">
