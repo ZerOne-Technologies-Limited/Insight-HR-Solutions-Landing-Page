@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin, Package } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Mail, Building2, HardHat, Pickaxe, Sparkles, ChevronRight,CheckCircle, Send, MapPin, Package } from 'lucide-react';
 import homebg from './assets/homebg.jpg'
 import company from './assets/company.jpg'
 import { Link } from "react-router-dom";
@@ -362,7 +362,13 @@ function App() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <Phone className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-                  <p className="text-gray-600">+27 (77) 387-9866</p>
+                  <p className="text-gray-600">+27 77 387-9866</p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                  <MessageCircle className="w-12 h-12 text-blue-600 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">WhatsApp</h3>
+                  <p className="text-gray-600">+260 97 3011428 </p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
