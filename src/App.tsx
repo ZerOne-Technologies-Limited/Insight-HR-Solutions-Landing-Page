@@ -133,7 +133,7 @@ function App() {
               <a href="#home">
                 <span className={`text-2xl font-bold transition-colors duration-300 ${scrollPosition > 50 ? 'text-blue-600' : 'text-white'
                   }`}>
-                  Insight HR Solutions
+                  Insight Human Resource Investment Limited
                 </span>
               </a>
 
@@ -374,7 +374,7 @@ function App() {
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
-                  <p className="text-gray-600">Plot No. 205, Kanyanta Avenue, Unit 1</p>
+                  <p className="text-gray-600">Plot No. 205 Kanyanta Avenue, Soho park - Parklands</p>
                   <p className="text-gray-600">Kitwe, Zambia.</p>
                 </div>
               </div>
