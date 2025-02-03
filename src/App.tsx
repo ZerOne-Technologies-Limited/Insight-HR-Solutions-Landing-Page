@@ -9,16 +9,19 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeService, setActiveService] = useState(0);
+  const [isAutoChanging, setIsAutoChanging] = useState(true);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!isAutoChanging) return; // Stop the interval if auto-changing is disabled
+  
     const intervalId = setInterval(() => {
       setActiveService((prevService) => (prevService + 1) % services.length);
-    }, 3000); // Change service every 3 seconds
-
-    return () => clearInterval(intervalId); // Cleanup interval on unmount or when activeService changes
-  }, [activeService]);
+    }, 3000); 
+  
+    return () => clearInterval(intervalId);
+  }, [activeService, isAutoChanging]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -244,21 +247,20 @@ function App() {
       <div className="relative flex flex-wrap justify-center gap-4 mb-12 z-10">
         {services.map((service, index) => (
           <button
-          key={index}
-          className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
-            ${activeService === index ? "bg-blue-700 text-white scale-105 shadow-lg" : "bg-gray-200 text-gray-700 hover:bg-blue-200 hover:scale-105"}
-          `}
-          onClick={() => {
-            setActiveService(index);
-             // Stop the automatic switch when a service is clicked
-          }}
-          style={{ marginBottom: "-20px" }} // Slight overlap
-        >
-          <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
-            {service.icon}
-          </span>
-          <span className="hidden md:inline">{service.title}</span>
-        </button>
+            key={index}
+            className={`flex items-center gap-2 px-6 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-300 transform 
+              ${activeService === index ? "bg-blue-700 text-white scale-105 shadow-lg" : "bg-gray-200 text-gray-700 hover:bg-blue-200 hover:scale-105"}`}
+            onClick={() => {
+              setActiveService(index);
+              setIsAutoChanging(false); // Stop auto change when a user clicks
+            }}
+            style={{ marginBottom: "-20px" }}
+          >
+            <span className={`${activeService === index ? "text-white" : "text-blue-600"}`}>
+              {service.icon}
+            </span>
+            <span className="hidden md:inline">{service.title}</span>
+          </button>
         
         ))}
       </div>
