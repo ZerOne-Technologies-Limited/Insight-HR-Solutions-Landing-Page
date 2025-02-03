@@ -356,7 +356,7 @@ function App() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 items-center">
               {/* Contact Information */}
               <div className="md:col-span-1 space-y-6">
                 <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
