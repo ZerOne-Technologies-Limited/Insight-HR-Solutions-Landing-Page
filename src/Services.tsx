@@ -14,7 +14,7 @@ import supply from './assets/supply.jpg'
 
 const services = [
   {
-    category: "HR and professional services",
+    category: "HR and Professional Services",
     image: hr,
     details: "Payroll Management, Staff Outsourcing, Expatriate Services, Recruitment/Head hunting, and Training and Development.",
     text: [
