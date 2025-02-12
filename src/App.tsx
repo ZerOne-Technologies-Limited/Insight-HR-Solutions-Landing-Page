@@ -367,25 +367,37 @@ function App() {
             <div className="grid md:grid-cols-3 gap-8 items-center">
               {/* Contact Information */}
               <div className="md:col-span-1 space-y-6">
-                <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                  className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  onClick={() => window.location.href = "tel:+260973011428"}
+                >
                   <Phone className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
                   <p className="text-gray-600">+26 0973 011 428</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                  className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  onClick={() => window.open("https://wa.me/27773879866", "_blank")}
+                >
                   <MessageCircle className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">WhatsApp</h3>
-                  <p className="text-gray-600">+27 77 387 9866</p>
+                  <p className="text-gray-600">+27 77 387 9866 <br/> +263 78 805 1253</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                  className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  onClick={() => window.location.href = "mailto:elazakcm@gmail.com"}
+                >
                   <Mail className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
                   <p className="text-gray-600">elazakcm@gmail.com</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                  className="bg-white rounded-2xl p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  onClick={() => window.open("https://www.google.com/maps/search/?api=1&query=Plot+No.+205+Kanyanta+Avenue,+Unit+1+Soho+Park,+Kitwe,+Zambia", "_blank")}
+                >
                   <MapPin className="w-12 h-12 text-blue-600 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
                   <p className="text-gray-600">Plot No. 205 Kanyanta Avenue, Unit 1 Soho Park,</p>
